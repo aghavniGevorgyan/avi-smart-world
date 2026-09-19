@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AVI Smart Tech</title>
+
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+
+  <div class="logo" id="logoText">AVI Tech</div>
+
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#home" data-i18n="home">Home</a></li>
+    <li><a href="#projects" data-i18n="projects">Projects</a></li>
+    <li><a href="#about" data-i18n="about">About</a></li>
+    <li><a href="#contact" data-i18n="contact">Contact</a></li>
+  </ul>
+
+  <!-- 🌍 LANGUAGE (FIXED FLAGS STYLE) -->
+  <!-- 🌍 LANGUAGE SWITCHER -->
+<div class="lang-switcher">
+
+  <button class="lang-btn" onclick="toggleLangMenu()">🌐</button>
+
+  <ul class="lang-menu" id="langMenu">
+    <li onclick="changeLang('hy')">🇦🇲 Հայերեն</li>
+    <li onclick="changeLang('en')">🇬🇧 English</li>
+    <li onclick="changeLang('ru')">🇷🇺 Русский</li>
+  </ul>
+
+</div>
+
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+
+  <div class="hero-text">
+    <h1 data-i18n="hero_title">Smart Arduino & IoT Systems</h1>
+    <p data-i18n="hero_desc">Explore automation & robotics</p>
+  </div>
+
+  <model-viewer
+    src="https://modelviewer.dev/shared-assets/models/Astronaut.glb"
+    auto-rotate
+    camera-controls
+    class="model">
+  </model-viewer>
+
+</section>
+
+<!-- PROJECTS -->
+<section class="projects" id="projects">
+
+  <h2 data-i18n="projects_title">Projects</h2>
+  <p data-i18n="projects_desc">Arduino & Smart Tech systems</p>
+
+  <div class="grid">
+
+    <div class="card">
+      <h3>Smart Home</h3>
+      <iframe src="https://sketchfab.com/models/775a2bf901a74fd190f175f5f0dcf2d0/embed"></iframe>
+    </div>
+
+    <div class="card">
+      <h3>Smart Car</h3>
+      <iframe src="https://sketchfab.com/models/775a2bf901a74fd190f175f5f0dcf2d0/embed"></iframe>
+    </div>
+
+    <div class="card">
+      <h3>IoT Sensors</h3>
+      <iframe src="https://sketchfab.com/models/775a2bf901a74fd190f175f5f0dcf2d0/embed"></iframe>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+
+  <h2 data-i18n="about_title">About</h2>
+  <p data-i18n="about_desc">
+    Arduino, IoT, robotics and smart automation systems.
+  </p>
+
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+
+  <h2 data-i18n="contact_title">Contact Us</h2>
+
+  <form>
+    <input type="text" data-i18n-placeholder="name" placeholder="Name">
+    <input type="email" data-i18n-placeholder="email" placeholder="Email">
+    <textarea data-i18n-placeholder="message" placeholder="Message"></textarea>
+    <button data-i18n="send">Send</button>
+  </form>
+
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>

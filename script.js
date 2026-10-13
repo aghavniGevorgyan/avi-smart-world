@@ -281,10 +281,9 @@ document.getElementById("contactForm").addEventListener("submit", function(event
     message: this.message.value
   };
 
-  // Ուղարկում ենք EmailJS-ին (փոխարինեք YOUR_PUBLIC_KEY-ն ձեր իրական բանալիով, կամ համոզվեք որ HTML-ում արդեն դրել եք)
   emailjs.send("service_sekcp36", "template_9ezv25r", templateParams)
     .then(function(response) {
-        console.SUCCESS("SUCCESS!", response.status, response.text);
+        console.log("SUCCESS!", response.status, response.text);
         alert("Message sent successfully!");
         document.getElementById("contactForm").reset(); // Մաքրում է դաշտերը
     }, function(error) {

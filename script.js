@@ -274,8 +274,7 @@ window.addEventListener("DOMContentLoaded", () => {
 document.getElementById("contactForm").addEventListener("submit", function(event) {
   event.preventDefault(); // Կանխում է էջի թարմացումը
 
-  // Փոխարինեք YOUR_SERVICE_ID-ն և YOUR_TEMPLATE_ID-ն EmailJS-ից ստացված ձեր իրական կոդերով
-  emailjs.sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", this)
+  emailjs.sendForm("service_sekcp36", "template_9ezv25r", this)
     .then(function() {
         alert("Message sent successfully!");
         document.getElementById("contactForm").reset(); // Մաքրում է դաշտերը

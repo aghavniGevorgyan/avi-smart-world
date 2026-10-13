@@ -274,12 +274,21 @@ window.addEventListener("DOMContentLoaded", () => {
 document.getElementById("contactForm").addEventListener("submit", function(event) {
   event.preventDefault(); // Կանխում է էջի թարմացումը
 
-  emailjs.sendForm("service_sekcp36", "template_9ezv25r", this)
-    .then(function() {
+  // Հավաքում ենք տվյալները կայքի դաշտերից
+  const templateParams = {
+    user_name: this.user_name.value,
+    user_email: this.user_email.value,
+    message: this.message.value
+  };
+
+  // Ուղարկում ենք EmailJS-ին (փոխարինեք YOUR_PUBLIC_KEY-ն ձեր իրական բանալիով, կամ համոզվեք որ HTML-ում արդեն դրել եք)
+  emailjs.send("service_sekcp36", "template_9ezv25r", templateParams)
+    .then(function(response) {
+        console.SUCCESS("SUCCESS!", response.status, response.text);
         alert("Message sent successfully!");
         document.getElementById("contactForm").reset(); // Մաքրում է դաշտերը
     }, function(error) {
-        alert("Failed to send message. Please try again.");
         console.log("FAILED...", error);
+        alert("Failed to send message. Error: " + JSON.stringify(error));
     });
 });

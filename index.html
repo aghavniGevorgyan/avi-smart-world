@@ -126,11 +126,12 @@
 
   <link rel="stylesheet" href="style.css">
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  
   <!-- EmailJS Library -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script type="text/javascript">
      (function(){
-         emailjs.init("YOUR_PUBLIC_KEY"); // <-- Այստեղ տեղադրեք ձեր EmailJS Public Key-ն
+         emailjs.init("ՁԵՐ_PUBLIC_KEY_Ն"); // <-- Այստեղ գրեք ձեր իրական Public Key-ն EmailJS-ից
      })();
   </script>
 </head>
@@ -225,7 +226,6 @@
 
   <h2 data-i18n="contact_title">Contact Us</h2>
 
-  <!-- Ավելացվել է id և name ատրիբուտներ -->
   <form id="contactForm">
     <input type="text" name="user_name" data-i18n-placeholder="name" placeholder="Name" required>
     <input type="email" name="user_email" data-i18n-placeholder="email" placeholder="Email" required>

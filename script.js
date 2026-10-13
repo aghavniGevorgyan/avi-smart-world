@@ -276,6 +276,7 @@ document.getElementById("contactForm").addEventListener("submit", function(event
 
   // Հավաքում ենք տվյալները կայքի դաշտերից
   const templateParams = {
+    title: "Նոր հաղորդագրություն կայքից",
     user_name: this.user_name.value,
     user_email: this.user_email.value,
     message: this.message.value

@@ -136,27 +136,27 @@ window.addEventListener("DOMContentLoaded", () => {
 */
 
 function toggleMenu() {
-  const nav = document.getElementById("navLinks");
-  if (nav) nav.classList.toggle("active");
+  const nav = document.getElementById("navLinks")
+  if (nav) nav.classList.toggle("active")
 }
 
 /* 🌍 LANGUAGE MENU TOGGLE */
 function toggleLangMenu() {
-  const menu = document.getElementById("langMenu");
-  if (menu) menu.classList.toggle("active");
+  const menu = document.getElementById("langMenu")
+  if (menu) menu.classList.toggle("active")
 }
 
 /* click outside → close menu */
 window.addEventListener("click", function (e) {
-  const menu = document.getElementById("langMenu");
-  const btn = document.querySelector(".lang-btn");
+  const menu = document.getElementById("langMenu")
+  const btn = document.querySelector(".lang-btn")
 
   if (menu && btn) {
     if (!menu.contains(e.target) && !btn.contains(e.target)) {
-      menu.classList.remove("active");
+      menu.classList.remove("active")
     }
   }
-});
+})
 
 /* 🌍 TRANSLATIONS */
 const translations = {
@@ -237,58 +237,62 @@ const translations = {
 
     logo: "AVI Tech"
   }
-};
+}
 
 /* 🌍 CHANGE LANGUAGE */
 function changeLang(lang) {
-  localStorage.setItem("lang", lang);
+  localStorage.setItem("lang", lang)
 
   document.querySelectorAll("[data-i18n]").forEach(el => {
-    const key = el.dataset.i18n;
+    const key = el.dataset.i18n
     if (translations[lang][key]) {
-      el.textContent = translations[lang][key];
+      el.textContent = translations[lang][key]
     }
-  });
+  })
 
   document.querySelectorAll("[data-i18n-placeholder]").forEach(el => {
-    const key = el.dataset.i18nPlaceholder;
+    const key = el.dataset.i18nPlaceholder
     if (translations[lang][key]) {
-      el.placeholder = translations[lang][key];
+      el.placeholder = translations[lang][key]
     }
-  });
+  })
 
-  const logo = document.getElementById("logoText");
-  if (logo) logo.textContent = translations[lang].logo;
+  const logo = document.getElementById("logoText")
+  if (logo) logo.textContent = translations[lang].logo
 
-  const menu = document.getElementById("langMenu");
-  if (menu) menu.classList.remove("active");
+  const menu = document.getElementById("langMenu")
+  if (menu) menu.classList.remove("active")
 }
 
 /* 💾 LOAD SAVED LANGUAGE */
 window.addEventListener("DOMContentLoaded", () => {
-  const savedLang = localStorage.getItem("lang") || "en";
-  changeLang(savedLang);
-});
+  const savedLang = localStorage.getItem("lang") || "en"
+  changeLang(savedLang)
+})
 
 /* 📧 EMAILJS CONTACT FORM SUBMISSION */
 document.getElementById("contactForm").addEventListener("submit", function(event) {
-  event.preventDefault(); // Կանխում է էջի թարմացումը
+  event.preventDefault() // Կանխում է էջի թարմացումը
 
-  // Հավաքում ենք տվյալները կայքի դաշտերից
+  const now = new Date()
+  const formattedTime = now.toLocaleString()
+
+  // Հավաքում ենք տվյալները ձեր HTML template-ի պահանջներին համապատասխան
   const templateParams = {
     title: "Նոր հաղորդագրություն կայքից",
-    user_name: this.user_name.value,
+    name: this.user_name.value,
     user_email: this.user_email.value,
-    message: this.message.value
-  };
+    message: this.message.value,
+    time: formattedTime
+  }
 
   emailjs.send("service_sekcp36", "template_9ezv25r", templateParams)
     .then(function(response) {
-        console.log("SUCCESS!", response.status, response.text);
-        alert("Message sent successfully!");
-        document.getElementById("contactForm").reset(); // Մաքրում է դաշտերը
+        console.log("SUCCESS!", response.status, response.text)
+        alert("Message sent successfully!")
+        document.getElementById("contactForm").reset()
     }, function(error) {
-        console.log("FAILED...", error);
-        alert("Failed to send message. Error: " + JSON.stringify(error));
-    });
-});
+        console.log("FAILED...", error)
+        alert("Failed to send message. Error: " + JSON.stringify(error))
+    })
+})

@@ -174,7 +174,7 @@ const translations = {
 
     about_title: "About Us",
     about_desc:
-      "AVI Smart Tech is an innovative platform uniting modern technology, automation, and robotics. We specialize in developing smart devices, Arduino projects, and IoT (Internet of Things) solutions designed to make engineering more accessible and efficient.",
+      "AVI Smart Tech is an innovative platform uniting modern technology, automation, and robotics. We specialize in developing smart devices, Arduino projects, and IoT solutions designed to make engineering more accessible and efficient.",
 
     contact_title: "Contact Us",
     contact_desc: "Send a message",
@@ -228,7 +228,7 @@ const translations = {
 
     about_title: "О нас",
     about_desc:
-      "AVI Smart Tech — это инновационная платформа, объединяющая современные технологии, автоматизацию и робототехнику. Мы специализируемся на разработке умных устройств, проектов на Arduino и решений IoT (Интернета вещей).",
+      "AVI Smart Tech — это инновационная платформа, объединяющая современные технологии, автоматизацию и робототехнику. Мы специализируемся на разработке умных устройств, проектов на Arduino и решений IoT .",
 
     contact_title: "Связаться",
     contact_desc: "Отправьте сообщение",

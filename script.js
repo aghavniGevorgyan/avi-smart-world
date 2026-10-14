@@ -136,27 +136,27 @@ window.addEventListener("DOMContentLoaded", () => {
 */
 
 function toggleMenu() {
-  const nav = document.getElementById("navLinks")
-  if (nav) nav.classList.toggle("active")
+  const nav = document.getElementById("navLinks");
+  if (nav) nav.classList.toggle("active");
 }
 
 /* 🌍 LANGUAGE MENU TOGGLE */
 function toggleLangMenu() {
-  const menu = document.getElementById("langMenu")
-  if (menu) menu.classList.toggle("active")
+  const menu = document.getElementById("langMenu");
+  if (menu) menu.classList.toggle("active");
 }
 
 /* click outside → close menu */
 window.addEventListener("click", function (e) {
-  const menu = document.getElementById("langMenu")
-  const btn = document.querySelector(".lang-btn")
+  const menu = document.getElementById("langMenu");
+  const btn = document.querySelector(".lang-btn");
 
   if (menu && btn) {
     if (!menu.contains(e.target) && !btn.contains(e.target)) {
-      menu.classList.remove("active")
+      menu.classList.remove("active");
     }
   }
-})
+});
 
 /* 🌍 TRANSLATIONS */
 const translations = {
@@ -172,8 +172,9 @@ const translations = {
     projects_title: "Projects",
     projects_desc: "Arduino & Smart Tech systems",
 
-    about_title: "About",
-    about_desc: "Arduino, IoT, robotics platform",
+    about_title: "About Us",
+    about_desc:
+      "AVI Smart Tech is an innovative platform uniting modern technology, automation, and robotics. We specialize in developing smart devices, Arduino projects, and IoT (Internet of Things) solutions designed to make engineering more accessible and efficient.",
 
     contact_title: "Contact Us",
     contact_desc: "Send a message",
@@ -183,7 +184,7 @@ const translations = {
     message: "Message",
     send: "Send",
 
-    logo: "AVI Tech"
+    logo: "AVI Tech",
   },
 
   hy: {
@@ -199,7 +200,8 @@ const translations = {
     projects_desc: "Arduino և Smart տեխնոլոգիաներ",
 
     about_title: "Մեր մասին",
-    about_desc: "Arduino, IoT, ռոբոտիկա",
+    about_desc:
+      "AVI Smart Tech-ը նորարարական հարթակ է, որը միավորում է ժամանակակից տեխնոլոգիաները, ավտոմատացումը և ռոբոտիկան: Մենք մասնագիտացված ենք խելացի սարքերի, Arduino նախագծերի և IoT (Իրերի համացանց) լուծումների մշակման գործում:",
 
     contact_title: "Կապ մեզ հետ",
     contact_desc: "Ուղարկիր հաղորդագրություն",
@@ -209,7 +211,7 @@ const translations = {
     message: "Հաղորդագրություն",
     send: "Ուղարկել",
 
-    logo: "AVI Tech"
+    logo: "AVI Tech",
   },
 
   ru: {
@@ -225,7 +227,8 @@ const translations = {
     projects_desc: "Arduino и Smart технологии",
 
     about_title: "О нас",
-    about_desc: "Arduino, IoT, робототехника",
+    about_desc:
+      "AVI Smart Tech — это инновационная платформа, объединяющая современные технологии, автоматизацию и робототехнику. Мы специализируемся на разработке умных устройств, проектов на Arduino и решений IoT (Интернета вещей).",
 
     contact_title: "Связаться",
     contact_desc: "Отправьте сообщение",
@@ -235,64 +238,68 @@ const translations = {
     message: "Сообщение",
     send: "Отправить",
 
-    logo: "AVI Tech"
-  }
-}
+    logo: "AVI Tech",
+  },
+};
 
 /* 🌍 CHANGE LANGUAGE */
 function changeLang(lang) {
-  localStorage.setItem("lang", lang)
+  localStorage.setItem("lang", lang);
 
-  document.querySelectorAll("[data-i18n]").forEach(el => {
-    const key = el.dataset.i18n
+  document.querySelectorAll("[data-i18n]").forEach((el) => {
+    const key = el.dataset.i18n;
     if (translations[lang][key]) {
-      el.textContent = translations[lang][key]
+      el.textContent = translations[lang][key];
     }
-  })
+  });
 
-  document.querySelectorAll("[data-i18n-placeholder]").forEach(el => {
-    const key = el.dataset.i18nPlaceholder
+  document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+    const key = el.dataset.i18nPlaceholder;
     if (translations[lang][key]) {
-      el.placeholder = translations[lang][key]
+      el.placeholder = translations[lang][key];
     }
-  })
+  });
 
-  const logo = document.getElementById("logoText")
-  if (logo) logo.textContent = translations[lang].logo
+  const logo = document.getElementById("logoText");
+  if (logo) logo.textContent = translations[lang].logo;
 
-  const menu = document.getElementById("langMenu")
-  if (menu) menu.classList.remove("active")
+  const menu = document.getElementById("langMenu");
+  if (menu) menu.classList.remove("active");
 }
 
 /* 💾 LOAD SAVED LANGUAGE */
 window.addEventListener("DOMContentLoaded", () => {
-  const savedLang = localStorage.getItem("lang") || "en"
-  changeLang(savedLang)
-})
+  const savedLang = localStorage.getItem("lang") || "en";
+  changeLang(savedLang);
+});
 
 /* 📧 EMAILJS CONTACT FORM SUBMISSION */
-document.getElementById("contactForm").addEventListener("submit", function(event) {
-  event.preventDefault() // Կանխում է էջի թարմացումը
+document
+  .getElementById("contactForm")
+  .addEventListener("submit", function (event) {
+    event.preventDefault(); // Կանխում է էջի թարմացումը
 
-  const now = new Date()
-  const formattedTime = now.toLocaleString()
+    const now = new Date();
+    const formattedTime = now.toLocaleString();
 
-  // Հավաքում ենք տվյալները ձեր HTML template-ի պահանջներին համապատասխան
-  const templateParams = {
-    title: "Նոր հաղորդագրություն կայքից",
-    name: this.user_name.value,
-    user_email: this.user_email.value,
-    message: this.message.value,
-    time: formattedTime
-  }
+    // Հավաքում ենք տվյալները ձեր HTML template-ի պահանջներին համապատասխան
+    const templateParams = {
+      title: "Նոր հաղորդագրություն կայքից",
+      name: this.user_name.value,
+      user_email: this.user_email.value,
+      message: this.message.value,
+      time: formattedTime,
+    };
 
-  emailjs.send("service_sekcp36", "template_9ezv25r", templateParams)
-    .then(function(response) {
-        console.log("SUCCESS!", response.status, response.text)
-        alert("Message sent successfully!")
-        document.getElementById("contactForm").reset()
-    }, function(error) {
-        console.log("FAILED...", error)
-        alert("Failed to send message. Error: " + JSON.stringify(error))
-    })
-})
+    emailjs.send("service_sekcp36", "template_9ezv25r", templateParams).then(
+      function (response) {
+        console.log("SUCCESS!", response.status, response.text);
+        alert("Message sent successfully!");
+        document.getElementById("contactForm").reset();
+      },
+      function (error) {
+        console.log("FAILED...", error);
+        alert("Failed to send message. Error: " + JSON.stringify(error));
+      },
+    );
+  });

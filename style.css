@@ -241,3 +241,66 @@ iframe {
 }
 
 
+
+
+
+/* ================= TUTORIAL PAGES (Watering, etc.) ================= */
+.tutorial-section {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.tutorial-back-link {
+  color: #3498db;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  margin-bottom: 20px;
+  transition: 0.2s;
+}
+
+.tutorial-back-link:hover {
+  text-decoration: underline;
+  color: #4facfe;
+}
+
+.tutorial-card {
+  padding: 30px;
+  text-align: left;
+}
+
+.tutorial-card h1 {
+  margin-bottom: 15px;
+  color: #fff;
+  font-size: 26px;
+}
+
+.tutorial-card p {
+  color: #dcdcdc;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+.tutorial-card h3 {
+  color: #4facfe;
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+
+.tutorial-card ul {
+  color: #dcdcdc;
+  line-height: 1.8;
+  margin-left: 20px;
+}
+
+.tutorial-code-box {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 15px;
+  border-radius: 10px;
+  overflow-x: auto;
+  color: #a6e22e;
+  font-family: monospace;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+

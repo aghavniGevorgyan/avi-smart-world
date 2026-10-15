@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Smart Watering System - AVI Smart Tech</title>
+  <title data-i18n="page_title">Smart Watering System - AVI Smart Tech</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,7 +11,6 @@
 <!-- NAVBAR -->
 <nav class="navbar">
   <div class="logo" id="logoText">AVI Tech</div>
-
 
   <!-- 🌍 LANGUAGE SWITCHER -->
   <div class="lang-switcher">
@@ -25,18 +24,18 @@
 </nav>
 
 <!-- TUTORIAL CONTENT -->
-<section class="tutorial-section" style="max-width: 800px; margin: 40px auto; padding: 20px;">
+<section class="tutorial-section">
   
-  <a href="index.html" style="color: #3498db; text-decoration: none; font-weight: bold; display: inline-block; margin-bottom: 20px;">← Back to Home</a>
+  <a href="index.html" class="tutorial-back-link" data-i18n="back_home">← Back to Home</a>
 
-  <div class="card" style="padding: 30px; text-align: left;">
-    <h1 style="margin-bottom: 15px; color: #fff;">IoT Smart Plant Watering System</h1>
-    <p style="color: #dcdcdc; line-height: 1.6; margin-bottom: 25px;">
+  <div class="card tutorial-card">
+    <h1 data-i18n="water_title">IoT Smart Plant Watering System</h1>
+    <p data-i18n="water_desc">
       Learn how to build an automated plant watering system using Arduino, a soil moisture sensor, and a mini water pump.
     </p>
 
-    <h3 style="color: #4facfe; margin-top: 20px;">1. Required Components</h3>
-    <ul style="color: #dcdcdc; line-height: 1.8; margin-left: 20px;">
+    <h3 data-i18n="sec1_title">1. Required Components</h3>
+    <ul data-i18n-list="sec1_items">
       <li>Arduino Uno (or any compatible board)</li>
       <li>Soil Moisture Sensor (հողի խոնավության սենսոր)</li>
       <li>Relay Module (5V ռելե՝ պոմպը կառավարելու համար)</li>
@@ -45,17 +44,17 @@
       <li>External Power Supply / Battery</li>
     </ul>
 
-    <h3 style="color: #4facfe; margin-top: 25px;">2. Circuit Connections</h3>
-    <ul style="color: #dcdcdc; line-height: 1.8; margin-left: 20px;">
+    <h3 data-i18n="sec2_title">2. Circuit Connections</h3>
+    <ul data-i18n-list="sec2_items">
       <li><strong>Soil Moisture Sensor:</strong> VCC -> 5V, GND -> GND, A0 -> Arduino Analog Pin A0</li>
       <li><strong>Relay Module:</strong> VCC -> 5V, GND -> GND, IN -> Arduino Digital Pin D7</li>
       <li><strong>Water Pump:</strong> Connected through the Relay switch to an external power source.</li>
     </ul>
 
-    <h3 style="color: #4facfe; margin-top: 25px;">3. Arduino Code (Sketch)</h3>
-    <p style="color: #dcdcdc; margin-bottom: 10px;">Upload this code to your Arduino board using the Arduino IDE:</p>
+    <h3 data-i18n="sec3_title">3. Arduino Code (Sketch)</h3>
+    <p data-i18n="sec3_desc">Upload this code to your Arduino board using the Arduino IDE:</p>
     
-    <pre style="background: rgba(0,0,0,0.6); padding: 15px; border-radius: 10px; overflow-x: auto; color: #a6e22e; font-family: monospace;"><code>
+    <pre class="tutorial-code-box"><code>
 const int sensorPin = A0;  // Soil moisture sensor pin
 const int relayPin = 7;    // Relay control pin
 const int threshold = 500; // Dry threshold level
@@ -82,14 +81,15 @@ void loop() {
 }
     </code></pre>
 
-    <h3 style="color: #4facfe; margin-top: 25px;">4. Conclusion</h3>
-    <p style="color: #dcdcdc; line-height: 1.6;">
+    <h3 data-i18n="sec4_title">4. Conclusion</h3>
+    <p data-i18n="sec4_desc">
       By completing this project, you’ve learned the basics of reading analog sensor data and controlling high-power devices safely using a relay module with Arduino!
     </p>
   </div>
 
 </section>
 
-<script src="script.js"></script>
+<!-- 🔗 JavaScript -->
+<script src="watering.js"></script>
 </body>
 </html>

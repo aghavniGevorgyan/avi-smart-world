@@ -183,35 +183,63 @@
 </section>
 
 <!-- PROJECTS -->
+<!-- PROJECTS -->
 <section class="projects" id="projects">
-
   <h2 data-i18n="projects_title">Projects</h2>
   <p data-i18n="projects_desc">Arduino & Smart Tech systems</p>
 
   <div class="grid">
 
-   <div class="card">
+    <!-- Քարտ 1: Smart Home -->
+    <div class="card">
       <a href="smarthome.html" target="_blank">
         <h3>Smart Home</h3>
-        <iframe src="https://sketchfab.com/models/775a2bf901a74fd190f175f5f0dcf2d0/embed"></iframe>
+        <!-- Իսկական 3D դիտարկիչ -->
+        <model-viewer 
+          src="models/home.glb" 
+          alt="A 3D model of a Smart Home" 
+          auto-rotate 
+          camera-controls 
+          shadow-intensity="1" 
+          loading="lazy"
+          style="width: 100%; height: 220px; background-color: transparent;">
+        </model-viewer>
       </a>
     </div>
 
+    <!-- Քարտ 2: Watering system -->
     <div class="card">
-      <a href="first.html" target="_blank">
+      <a href="watering.html" target="_blank">
         <h3>Watering system</h3>
-        <iframe src="https://sketchfab.com/models/775a2bf901a74fd190f175f5f0dcf2d0/embed"></iframe>
+        <model-viewer 
+          src="models/plant.glb" 
+          alt="A 3D model of a Smart Plant" 
+          auto-rotate 
+          camera-controls 
+          shadow-intensity="1" 
+          loading="lazy"
+          style="width: 100%; height: 220px; background-color: transparent;">
+        </model-viewer>
       </a>
     </div>
 
+    <!-- Քարտ 3: Smart Dustbin -->
     <div class="card">
       <a href="dustbin.html" target="_blank">
         <h3>Smart Dustbin</h3>
-        <iframe src="https://sketchfab.com/models/775a2bf901a74fd190f175f5f0dcf2d0/embed"></iframe>
+        <model-viewer 
+          src="models/bin.glb" 
+          alt="A 3D model of a Smart Dustbin" 
+          auto-rotate 
+          camera-controls 
+          shadow-intensity="1" 
+          loading="lazy"
+          style="width: 100%; height: 220px; background-color: transparent;">
+        </model-viewer>
       </a>
     </div>
-  </div>
 
+  </div>
 </section>
 
 <!-- ABOUT -->

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="page_title">Smart Home System - AVI Smart Tech</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="logo" id="logoText">AVI Tech</div>
+
+  <!-- 🌍 LANGUAGE SWITCHER -->
+  <div class="lang-switcher">
+    <button class="lang-btn" onclick="toggleLangMenu()">🌐</button>
+    <ul class="lang-menu" id="langMenu">
+      <li onclick="changeLang('hy')">🇦🇲 Հայերեն</li>
+      <li onclick="changeLang('en')">🇬🇧 English</li>
+      <li onclick="changeLang('ru')">🇷🇺 Русский</li>
+    </ul>
+  </div>
+</nav>
+
+<!-- TUTORIAL CONTENT -->
+<section class="tutorial-section">
+  
+  <a href="index.html" class="tutorial-back-link" data-i18n="back_home">← Back to Home</a>
+
+  <div class="card tutorial-card">
+    <h1 data-i18n="home_title">IoT Smart Home Automation System</h1>
+    <p data-i18n="home_desc">
+      Learn how to build a basic smart home system using Arduino, a temperature sensor, and automated lighting control.
+    </p>
+
+    <h3 data-i18n="sec1_title">1. Required Components</h3>
+    <ul>
+      <li data-i18n="comp_1">Arduino Uno (or any compatible board)</li>
+      <li data-i18n="comp_2">DHT11 Temperature & Humidity Sensor</li>
+      <li data-i18n="comp_3">Relay Module (for controlling appliances / lights)</li>
+      <li data-i18n="comp_4">LEDs & Resistors</li>
+      <li data-i18n="comp_5">Jumper Wires & Breadboard</li>
+    </ul>
+
+    <h3 data-i18n="sec2_title">2. Circuit Connections</h3>
+    <ul>
+      <li><strong>DHT11 Sensor:</strong> VCC -> 5V, GND -> GND, Data -> Digital Pin 2</li>
+      <li><strong>Relay Module:</strong> VCC -> 5V, GND -> GND, IN -> Digital Pin 7</li>
+      <li><strong>LEDs:</strong> Connected to digital pins for room status simulation.</li>
+    </ul>
+
+    <h3 data-i18n="sec3_title">3. Arduino Code (Sketch)</h3>
+    <p data-i18n="sec3_desc">Upload this code to your Arduino board using the Arduino IDE:</p>
+    
+    <pre class="tutorial-code-box"><code>
+#include &lt;DHT.h&gt;
+
+#define DHTPIN 2     // Digital pin connected to the DHT sensor
+#define DHTTYPE DHT11 // DHT 11
+const int relayPin = 7;
+
+DHT dht(DHTPIN, DHTTYPE);
+
+void setup() {
+  Serial.begin(9600);
+  dht.begin();
+  pinMode(relayPin, OUTPUT);
+  digitalWrite(relayPin, HIGH); // Off initially
+}
+
+void loop() {
+  delay(2000);
+  float h = dht.readHumidity();
+  float t = dht.readTemperature();
+
+  if (isnan(h) || isnan(t)) {
+    Serial.println(F("Failed to read from DHT sensor!"));
+    return;
+  }
+
+  Serial.print(F("Humidity: "));
+  Serial.print(h);
+  Serial.print(F("%  Temperature: "));
+  Serial.print(t);
+  Serial.println(F("°C"));
+
+  // If temperature is high, turn on cooling/fan via relay
+  if (t &gt; 25.0) {
+    digitalWrite(relayPin, LOW); // Turn on relay/fan
+    Serial.println("Temperature high! Fan ON.");
+  } else {
+    digitalWrite(relayPin, HIGH); // Turn off relay/fan
+    Serial.println("Temperature normal. Fan OFF.");
+  }
+}
+    </code></pre>
+
+    <h3 data-i18n="sec4_title">4. Conclusion</h3>
+    <p data-i18n="sec4_desc">
+      By building this smart home setup, you learned how to read environmental data from sensors and automate home devices based on real-time conditions!
+    </p>
+  </div>
+
+</section>
+
+<!-- 🔗 JavaScript -->
+<script src="smarthome.js"></script>
+</body>
+</html>

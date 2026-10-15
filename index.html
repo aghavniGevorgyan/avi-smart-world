@@ -1,4 +1,3 @@
-<!--
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,132 +6,15 @@
   <title>AVI Smart Tech</title>
 
   <link rel="stylesheet" href="style.css">
-  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-</head>
-
-<body>
-
-
-<nav class="navbar">
-
-  <div class="logo" id="logoText">AVI Tech</div>
-
-  <ul class="nav-links" id="navLinks">
-    <li><a href="#home" data-i18n="home">Home</a></li>
-    <li><a href="#projects" data-i18n="projects">Projects</a></li>
-    <li><a href="#about" data-i18n="about">About</a></li>
-    <li><a href="#contact" data-i18n="contact">Contact</a></li>
-  </ul>
-
-
-<div class="lang-switcher">
-
-  <button class="lang-btn" onclick="toggleLangMenu()">🌐</button>
-
-  <ul class="lang-menu" id="langMenu">
-    <li onclick="changeLang('hy')">🇦🇲 Հայերեն</li>
-    <li onclick="changeLang('en')">🇬🇧 English</li>
-    <li onclick="changeLang('ru')">🇷🇺 Русский</li>
-  </ul>
-
-</div>
-
-</nav>
-
-
-<section class="hero" id="home">
-
-  <div class="hero-text">
-    <h1 data-i18n="hero_title">Smart Arduino & IoT Systems</h1>
-    <p data-i18n="hero_desc">Explore automation & robotics</p>
-  </div>
-
-  <model-viewer
-    src="https://modelviewer.dev/shared-assets/models/Astronaut.glb"
-    auto-rotate
-    camera-controls
-    class="model">
-  </model-viewer>
-
-</section>
-
-
-<section class="projects" id="projects">
-
-  <h2 data-i18n="projects_title">Projects</h2>
-  <p data-i18n="projects_desc">Arduino & Smart Tech systems</p>
-
-  <div class="grid">
-
-    <div class="card">
-      <h3>Smart Home</h3>
-      <iframe src="https://sketchfab.com/models/775a2bf901a74fd190f175f5f0dcf2d0/embed"></iframe>
-    </div>
-
-    <div class="card">
-      <a href="first.html" target="_blank">
-      <h3>Smart Car</h3>
-      <iframe src="https://sketchfab.com/models/775a2bf901a74fd190f175f5f0dcf2d0/embed"></iframe></iframe>
-      </a>
-    </div>
-
-    <div class="card">
-      <h3>IoT Sensors</h3>
-      <iframe src="https://sketchfab.com/models/775a2bf901a74fd190f175f5f0dcf2d0/embed"></iframe>
-    </div>
-
-  </div>
-
-</section>
-
-<section class="about" id="about">
-
-  <h2 data-i18n="about_title">About</h2>
-  <p data-i18n="about_desc">
-    Arduino, IoT, robotics and smart automation systems.
-  </p>
-
-</section>
-
-
-<section class="contact" id="contact">
-
-  <h2 data-i18n="contact_title">Contact Us</h2>
-
-  <form>
-    <input type="text" data-i18n-placeholder="name" placeholder="Name">
-    <input type="email" data-i18n-placeholder="email" placeholder="Email">
-    <textarea data-i18n-placeholder="message" placeholder="Message"></textarea>
-    <button data-i18n="send">Send</button>
-  </form>
-
-</section>
-
-<script src="script.js"></script>
-</body>
-</html>
--->
-<!--git add .
-//git commit -m "update website"
-//git push
--->
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AVI Smart Tech</title>
-
-  <link rel="stylesheet" href="style.css">
-  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
- 
-<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+  
+  <!-- Միայն մեկ անգամ է միացված model-viewer գրադարանը -->
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+  
   <!-- EmailJS Library -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script type="text/javascript">
      (function(){
-         emailjs.init("evBjuY8vHbUNP9yQB"); // <-- Այստեղ Public Key-ն EmailJS-ից
+         emailjs.init("evBjuY8vHbUNP9yQB"); 
      })();
   </script>
 </head>
@@ -184,7 +66,6 @@
 </section>
 
 <!-- PROJECTS -->
-<!-- PROJECTS -->
 <section class="projects" id="projects">
   <h2 data-i18n="projects_title">Projects</h2>
   <p data-i18n="projects_desc">Arduino & Smart Tech systems</p>
@@ -195,10 +76,9 @@
     <div class="card">
       <a href="smarthome.html" target="_blank">
         <h3>Smart Home</h3>
-        <!-- Իսկական 3D դիտարկիչ -->
         <model-viewer 
-          src="models/home.glb" 
-          alt="A 3D model of a Smart Home" 
+          src="https://modelviewer.dev/shared-assets/models/Astronaut.glb" 
+          alt="Smart Home" 
           auto-rotate 
           camera-controls 
           shadow-intensity="1" 
@@ -213,8 +93,8 @@
       <a href="watering.html" target="_blank">
         <h3>Watering system</h3>
         <model-viewer 
-          src="models/plant.glb" 
-          alt="A 3D model of a Smart Plant" 
+          src="https://modelviewer.dev/shared-assets/models/Astronaut.glb" 
+          alt="Watering System" 
           auto-rotate 
           camera-controls 
           shadow-intensity="1" 
@@ -229,8 +109,8 @@
       <a href="dustbin.html" target="_blank">
         <h3>Smart Dustbin</h3>
         <model-viewer 
-          src="models/bin.glb" 
-          alt="A 3D model of a Smart Dustbin" 
+          src="https://modelviewer.dev/shared-assets/models/Astronaut.glb" 
+          alt="Smart Dustbin" 
           auto-rotate 
           camera-controls 
           shadow-intensity="1" 
@@ -244,14 +124,12 @@
 </section>
 
 <!-- ABOUT -->
-<!-- ABOUT -->
 <section class="about" id="about">
   <h2 data-i18n="about_title">About Us</h2>
   <p data-i18n="about_desc" style="max-width: 700px; margin: 0 auto; line-height: 1.6; font-size: 1.1rem;">
     AVI Smart Tech is an innovative platform uniting modern technology, automation, and robotics. We specialize in developing smart devices, Arduino projects, and IoT (Internet of Things) solutions designed to make engineering more accessible and efficient.
   </p>
 </section>
-
 
 <!-- CONTACT -->
 <section class="contact" id="contact">

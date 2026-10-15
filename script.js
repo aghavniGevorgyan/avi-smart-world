@@ -303,3 +303,36 @@ document
       },
     );
   });
+
+
+  /* 📧 EMAILJS CONTACT FORM SUBMISSION */
+const contactForm = document.getElementById("contactForm");
+
+if (contactForm) {
+  contactForm.addEventListener("submit", function (event) {
+    event.preventDefault(); // Կանխում է էջի թարմացումը
+
+    const now = new Date();
+    const formattedTime = now.toLocaleString();
+
+    const templateParams = {
+      title: "Նոր հաղորդագրություն կայքից",
+      name: this.user_name.value,
+      user_email: this.user_email.value,
+      message: this.message.value,
+      time: formattedTime,
+    };
+
+    emailjs.send("service_sekcp36", "template_9ezv25r", templateParams).then(
+      function (response) {
+        console.log("SUCCESS!", response.status, response.text);
+        alert("Message sent successfully!");
+        contactForm.reset();
+      },
+      function (error) {
+        console.log("FAILED...", error);
+        alert("Failed to send message. Error: " + JSON.stringify(error));
+      }
+    );
+  });
+}

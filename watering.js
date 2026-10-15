@@ -73,7 +73,9 @@ function changeLang(lang) {
   })
 
   const logo = document.getElementById("logoText")
-  if (logo && translations[lang]) logo.textContent = translations[lang].logo
+  if (logo && translations[lang]) {
+    logo.textContent = translations[lang].logo
+  }
 
   const menu = document.getElementById("langMenu")
   if (menu) menu.classList.remove("active")

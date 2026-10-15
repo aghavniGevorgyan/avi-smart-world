@@ -313,7 +313,12 @@ iframe {
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-a>h3{
-text-decoration: none;
-    color: beige;
+.card a {
+  text-decoration: none; /* Հանում է հղման տակի գիծը */
+}
+
+.card a h3 {
+  color: beige; /* Վերնագրի գույնը */
+  text-decoration: none;
+  margin-top: 10px;
 }

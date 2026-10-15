@@ -1,11 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Watering System - AVI Smart Tech</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    fvdc
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="logo" id="logoText">AVI Tech</div>
+  
+  <ul class="nav-links">
+    <li><a href="index.html" data-i18n="home">Home</a></li>
+    <li><a href="index.html#projects" data-i18n="projects">Projects</a></li>
+    <li><a href="index.html#contact" data-i18n="contact">Contact</a></li>
+  </ul>
+
+  <!-- 🌍 LANGUAGE SWITCHER -->
+  <div class="lang-switcher">
+    <button class="lang-btn" onclick="toggleLangMenu()">🌐</button>
+    <ul class="lang-menu" id="langMenu">
+      <li onclick="changeLang('hy')">🇦🇲 Հայերեն</li>
+      <li onclick="changeLang('en')">🇬🇧 English</li>
+      <li onclick="changeLang('ru')">🇷🇺 Русский</li>
+    </ul>
+  </div>
+</nav>
+
+<!-- TUTORIAL CONTENT -->
+<section class="tutorial-section" style="max-width: 800px; margin: 40px auto; padding: 20px;">
+  
+  <a href="index.html" style="color: #3498db; text-decoration: none; font-weight: bold; display: inline-block; margin-bottom: 20px;">← Back to Home</a>
+
+  <div class="card" style="padding: 30px; text-align: left;">
+    <h1 style="margin-bottom: 15px; color: #fff;">IoT Smart Plant Watering System</h1>
+    <p style="color: #dcdcdc; line-height: 1.6; margin-bottom: 25px;">
+      Learn how to build an automated plant watering system using Arduino, a soil moisture sensor, and a mini water pump.
+    </p>
+
+    <h3 style="color: #4facfe; margin-top: 20px;">1. Required Components</h3>
+    <ul style="color: #dcdcdc; line-height: 1.8; margin-left: 20px;">
+      <li>Arduino Uno (or any compatible board)</li>
+      <li>Soil Moisture Sensor (հողի խոնավության սենսոր)</li>
+      <li>Relay Module (5V ռելե՝ պոմպը կառավարելու համար)</li>
+      <li>Mini Water Pump (5V ջրի փոքր պոմպ)</li>
+      <li>Jumper Wires (միացնող լարեր)</li>
+      <li>External Power Supply / Battery</li>
+    </ul>
+
+    <h3 style="color: #4facfe; margin-top: 25px;">2. Circuit Connections</h3>
+    <ul style="color: #dcdcdc; line-height: 1.8; margin-left: 20px;">
+      <li><strong>Soil Moisture Sensor:</strong> VCC -> 5V, GND -> GND, A0 -> Arduino Analog Pin A0</li>
+      <li><strong>Relay Module:</strong> VCC -> 5V, GND -> GND, IN -> Arduino Digital Pin D7</li>
+      <li><strong>Water Pump:</strong> Connected through the Relay switch to an external power source.</li>
+    </ul>
+
+    <h3 style="color: #4facfe; margin-top: 25px;">3. Arduino Code (Sketch)</h3>
+    <p style="color: #dcdcdc; margin-bottom: 10px;">Upload this code to your Arduino board using the Arduino IDE:</p>
+    
+    <pre style="background: rgba(0,0,0,0.6); padding: 15px; border-radius: 10px; overflow-x: auto; color: #a6e22e; font-family: monospace;"><code>
+const int sensorPin = A0;  // Soil moisture sensor pin
+const int relayPin = 7;    // Relay control pin
+const int threshold = 500; // Dry threshold level
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(relayPin, OUTPUT);
+  digitalWrite(relayPin, HIGH); // Turn pump OFF initially
+}
+
+void loop() {
+  int moistureValue = analogRead(sensorPin);
+  Serial.print("Moisture Level: ");
+  Serial.println(moistureValue);
+
+  if (moistureValue > threshold) {
+    Serial.println("Soil is dry! Watering plants...");
+    digitalWrite(relayPin, LOW);  // Turn pump ON
+    delay(5000);                  // Water for 5 seconds
+    digitalWrite(relayPin, HIGH); // Turn pump OFF
+  }
+
+  delay(300000); // Check every 5 minutes
+}
+    </code></pre>
+
+    <h3 style="color: #4facfe; margin-top: 25px;">4. Conclusion</h3>
+    <p style="color: #dcdcdc; line-height: 1.6;">
+      By completing this project, you’ve learned the basics of reading analog sensor data and controlling high-power devices safely using a relay module with Arduino!
+    </p>
+  </div>
+
+</section>
+
+<script src="script.js"></script>
 </body>
 </html>

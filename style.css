@@ -223,7 +223,6 @@ iframe {
   display: block;
 }
 
-
 /* ================= MOBILE ================= */
 @media(max-width:768px){
   .grid {
@@ -239,10 +238,6 @@ iframe {
     height: 280px;
   }
 }
-
-
-
-
 
 /* ================= TUTORIAL PAGES (Watering, etc.) ================= */
 .tutorial-section {
@@ -303,4 +298,3 @@ iframe {
   font-family: monospace;
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
-

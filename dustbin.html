@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="page_title">Smart Dustbin System - AVI Smart Tech</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="logo" id="logoText">AVI Tech</div>
+
+  <!-- 🌍 LANGUAGE SWITCHER -->
+  <div class="lang-switcher">
+    <button class="lang-btn" onclick="toggleLangMenu()">🌐</button>
+    <ul class="lang-menu" id="langMenu">
+      <li onclick="changeLang('hy')">🇦🇲 Հայերեն</li>
+      <li onclick="changeLang('en')">🇬🇧 English</li>
+      <li onclick="changeLang('ru')">🇷🇺 Русский</li>
+    </ul>
+  </div>
+</nav>
+
+<!-- TUTORIAL CONTENT -->
+<section class="tutorial-section">
+  
+  <a href="index.html" class="tutorial-back-link" data-i18n="back_home">← Back to Home</a>
+
+  <div class="card tutorial-card">
+    <h1 data-i18n="dustbin_title">IoT Smart Dustbin System</h1>
+    <p data-i18n="dustbin_desc">
+      Learn how to build an automatic smart dustbin that opens its lid using an ultrasonic sensor and a servo motor when someone approaches.
+    </p>
+
+    <h3 data-i18n="sec1_title">1. Required Components</h3>
+    <ul>
+      <li data-i18n="comp_1">Arduino Uno (or any compatible board)</li>
+      <li data-i18n="comp_2">Ultrasonic Sensor (HC-SR04 - հեռավորության սենսոր)</li>
+      <li data-i18n="comp_3">Servo Motor (SG90 - կափարիչը շարժելու համար)</li>
+      <li data-i18n="comp_4">Jumper Wires (միացնող լարեր)</li>
+      <li data-i18n="comp_5">Power Supply / USB Cable</li>
+    </ul>
+
+    <h3 data-i18n="sec2_title">2. Circuit Connections</h3>
+    <ul>
+      <li><strong>HC-SR04:</strong> VCC -> 5V, GND -> GND, Trig -> Pin 9, Echo -> Pin 10</li>
+      <li><strong>Servo Motor:</strong> Signal -> Pin 6, VCC -> 5V, GND -> GND</li>
+    </ul>
+
+    <h3 data-i18n="sec3_title">3. Arduino Code (Sketch)</h3>
+    <p data-i18n="sec3_desc">Upload this code to your Arduino board using the Arduino IDE:</p>
+    
+    <pre class="tutorial-code-box"><code>
+#include &lt;Servo.h&gt;
+
+const int trigPin = 9;
+const int echoPin = 10;
+Servo myServo;
+
+void setup() {
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+  myServo.attach(6);
+  myServo.write(0); // Lid closed position
+  Serial.begin(9600);
+}
+
+void loop() {
+  long duration;
+  int distance;
+
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+
+  duration = pulseIn(echoPin, HIGH);
+  distance = duration * 0.034 / 2;
+
+  // If someone is closer than 20 cm
+  if (distance &gt; 0 &amp;&amp; distance &lt; 20) {
+    myServo.write(90); // Open lid
+    delay(3000);       // Keep open for 3 seconds
+  } else {
+    myServo.write(0);  // Close lid
+  }
+
+  delay(100);
+}
+    </code></pre>
+
+    <h3 data-i18n="sec4_title">4. Conclusion</h3>
+    <p data-i18n="sec4_desc">
+      By building this smart dustbin, you learned how ultrasonic distance measurement works and how to synchronize it with servo motor motion for everyday automation!
+    </p>
+  </div>
+
+</section>
+
+<!-- 🔗 JavaScript -->
+<script src="dustbin.js"></script>
+</body>
+</html>
